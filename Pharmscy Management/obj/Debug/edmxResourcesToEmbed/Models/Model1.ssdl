@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pharmacyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_Id" />
+    </Key>
+    <Property Name="admin_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admin_Name" Type="varchar" MaxLength="50" />
+    <Property Name="admin_Email" Type="varchar" MaxLength="50" />
+    <Property Name="admin_Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_confirmpassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="capsules">
+    <Key>
+      <PropertyRef Name="cap_id" />
+    </Key>
+    <Property Name="cap_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cap_Name" Type="varchar" MaxLength="50" />
+    <Property Name="output" Type="varchar" MaxLength="50" />
+    <Property Name="cap_Size" Type="varchar" MaxLength="50" />
+    <Property Name="machine_dimension" Type="varchar" MaxLength="50" />
+    <Property Name="shiping_weight" Type="varchar" MaxLength="50" />
+    <Property Name="Capsules_Image" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="career">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firsrt_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" />
+    <Property Name="gendre" Type="varchar" MaxLength="50" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="phone_no" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="Experience" Type="varchar" MaxLength="50" />
+    <Property Name="cover_letter" Type="varchar" MaxLength="50" />
+    <Property Name="resume" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="contacts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="phone_no" Type="int" />
+    <Property Name="message" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Liquid fillings">
+    <Key>
+      <PropertyRef Name="Lq_Id" />
+    </Key>
+    <Property Name="Lq_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lq_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Air_Pressure" Type="varchar" MaxLength="50" />
+    <Property Name="Air_Volume" Type="varchar" MaxLength="50" />
+    <Property Name="Filling_Speed" Type="varchar" MaxLength="50" />
+    <Property Name="Filing_Range" Type="varchar" MaxLength="50" />
+    <Property Name="LQ_Image" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Qoute_Us">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Full_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Company_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Postal_Code" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Comments" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tablets">
+    <Key>
+      <PropertyRef Name="TB_ID" />
+    </Key>
+    <Property Name="TB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tb_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Model_No" Type="varchar" MaxLength="50" />
+    <Property Name="Dies" Type="varchar" MaxLength="50" />
+    <Property Name="Max_Pressure" Type="varchar" MaxLength="50" />
+    <Property Name="Max_Diametere" Type="varchar" MaxLength="50" />
+    <Property Name="Max_Depth" Type="varchar" MaxLength="50" />
+    <Property Name="Production_Capacity" Type="varchar" MaxLength="50" />
+    <Property Name="Machine_Size" Type="varchar" MaxLength="50" />
+    <Property Name="Net_Weight" Type="varchar" MaxLength="50" />
+    <Property Name="tablet_Image" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="pharmacyModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="capsules" EntityType="Self.capsules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="career" EntityType="Self.career" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Liquid fillings" EntityType="Self.Liquid fillings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Qoute_Us" EntityType="Self.Qoute_Us" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tablets" EntityType="Self.Tablets" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

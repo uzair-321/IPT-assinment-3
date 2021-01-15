@@ -1,0 +1,232 @@
+﻿
+@{ 
+    Layout = null;
+}
+
+@model Pharmscy_Management.Models.capsule
+
+    <html>
+    <head>
+
+        <title>Tablet</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+        <link rel="stylesheet" href="~/Design/fonts/icomoon/style.css">
+
+        <link rel="stylesheet" href="~/Design/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Design/css/magnific-popup.css">
+        <link rel="stylesheet" href="~/Design/css/jquery-ui.css">
+        <link rel="stylesheet" href="~/Design/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="~/Design/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="~/Design/css/aos.css">
+        <link rel="stylesheet" href="~/Design/css/style.css">
+
+        @*sidebar links*@
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Design/sidebar/css/style.css">
+    </head>
+    <body style="width:auto">
+
+        <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar" class="">
+                <h1><a href="index.html" class="logo">Pharmacy</a></h1>
+                <ul class="list-unstyled components mb-auto">
+                    <li class="active">
+                        <a href="@Url.Action("Admin_Home","Admin")"><span class="fa fa-home"></span>Home</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><i class="fa fa-desktop "></i> MY Web</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#"><i class="fa fa-cart-arrow-down"></i> Products</a>
+                        <ul class="dropdown">
+
+                            <li>
+                                <a href="#">Tablets<span class="fa arrow"></span></a>
+
+                            </li>
+
+                            <li>
+                                <a href="#">Capsules<span class="fa arrow"></span></a>
+
+                            </li>
+                            <li>
+                                <a href="#">Liquid Fillings<span class="fa arrow"></span></a>
+
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-book "></i> Career</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table"></i> Quote</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-table "></i> Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Admin_SignIn","Admin")"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Admin_SignUp","Admin")"><i class="fa fa-registered"></i> Registeration</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content" class="p-4 p-md-5">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                            <i class="fa fa-bars"></i>
+                            <span class="sr-only">Toggle Menu</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Portfolio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="row mb-auto">
+                    <div class="col-md-12">
+                        <!-- Advanced Tables -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Tablets Details
+                            </div>
+                            <div class="panel-body sm">
+                                <div class="table-responsive-sm" style="width:auto">
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="form-horizontal">
+                                            <h4>capsule</h4>
+                                            <hr />
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.cap_id)
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.cap_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.cap_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.cap_Name, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.output, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.output, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.output, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.cap_Size, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.cap_Size, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.cap_Size, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.machine_dimension, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.machine_dimension, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.machine_dimension, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.shiping_weight, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.shiping_weight, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.shiping_weight, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.Capsules_Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                < <div class="col-md-10">
+                                                    <input type="file" id="img" name="img" />
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Save" class="btn btn-default" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div>
+                                        @Html.ActionLink("Back to List", "Index")
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--End Advanced Tables -->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <script src="~/Design/js/jquery-3.3.1.min.js"></script>
+        <script src="~/Design/js/jquery-ui.js"></script>
+        <script src="~/Design/js/popper.min.js"></script>
+        <script src="~/Design/js/bootstrap.min.js"></script>
+        <script src="~/Design/js/owl.carousel.min.js"></script>
+        <script src="~/Design/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/Design/js/aos.js"></script>
+        <script src="~/Design/js/main.js"></script>
+        @*sidebar links*@
+        <script src="~/Design/sidebar/js/jquery.min.js"></script>
+        <script src="~/Design/sidebar/js/popper.js"></script>
+        <script src="~/Design/sidebar/js/bootstrap.min.js"></script>
+        <script src="~/Design/sidebar/js/main.js"></script>
+
+
+    </body>
+    </html>
+
